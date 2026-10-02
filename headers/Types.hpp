@@ -1,5 +1,6 @@
 #pragma once
 #include <cstdint>
+using namespace std;
 
 using OrderID = uint64_t;
 using Price = int64_t; // Fixed-point price in cents, e.g. $100.50 -> 10050. Avoids floating-point rounding errors.
