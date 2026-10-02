@@ -23,4 +23,25 @@ struct LimitLevel{
             total_quantity += order->remaining_quantity;
         }
     }
+
+    void remove(Order* order){
+        if(order->prev != nullptr){
+            order->prev->next = order->next;
+        }
+        else{
+            head = order->next;
+        }
+        
+        if(order->next != nullptr){
+            order->next->prev = order->prev;        
+        }
+        else{
+            tail = order->prev;
+        }
+
+        total_quantity -= order->remaining_quantity;
+        order->prev = nullptr;
+        order->next = nullptr;
+        order->level = nullptr;
+    }
 };
